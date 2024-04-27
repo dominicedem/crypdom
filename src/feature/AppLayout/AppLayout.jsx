@@ -146,19 +146,13 @@ function AppLayout() {
   const { transactionSuccess, transactionFail, connect, warning } = useSelector(
     (state) => state.transactionData
   );
-  const { data } = useQuery({
-    queryKey: ["isAirdrop"],
-    queryFn: () => ProjectStart(),
-  });
   const dispatch = useDispatch();
 
-  console.log(data && data);
-
   useEffect(() => {
-    data && dispatch(activateIsAirdrop(data.setting.projectStarted));
-    data && dispatch(activateIsClaim(data.setting.tokenClaimingPeriod));
-    data && dispatch(activateRetweetLink(data.setting.retweetLink));
-    data && dispatch(activateClaimFee(data.setting.claimFee));
+    // data && dispatch(activateIsAirdrop(data.setting.projectStarted));
+    // data && dispatch(activateIsClaim(data.setting.tokenClaimingPeriod));
+    // data && dispatch(activateRetweetLink(data.setting.retweetLink));
+    // data && dispatch(activateClaimFee(data.setting.claimFee));
     window.addEventListener("click", (e) => {
       [
         "wallet-adapter-modal-button-close",

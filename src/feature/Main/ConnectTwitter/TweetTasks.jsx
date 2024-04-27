@@ -141,7 +141,6 @@ function TweetTasks({ username }) {
   const { retweetLink } = useSelector((state) => state.applayout);
 
   const ref = localStorage.getItem("refData");
-  console.log("tweet", ref);
 
   const { data, refetch, remove, isFetching } = useQuery({
     queryKey: ["newUserData"],
@@ -164,9 +163,6 @@ function TweetTasks({ username }) {
     isFollowed !== "notFollowed" && dispatch(setConnectTwitter(false));
     isFollowed !== "notFollowed" && navigate("/");
     isFollowed === "notFollowed" && dispatch(setFollowModal(true));
-    // setTimeout(() => {
-    //   dispatch(setFollowModal(false));
-    // }, 3000);
     remove();
   }
 
