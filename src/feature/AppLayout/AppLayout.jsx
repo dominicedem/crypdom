@@ -12,17 +12,9 @@ import {
   openRoulette,
   openProceedModal,
 } from "../Slices/AuthSlice";
-import {
-  activateBlur,
-  activateClaimFee,
-  activateIsAirdrop,
-  activateIsClaim,
-  activateRetweetLink,
-} from "../Slices/AppSlice";
+import { activateBlur } from "../Slices/AppSlice";
 import TweetTasks from "../Main/ConnectTwitter/TweetTasks";
 import MenuBar from "../MenuBar/MenuBar";
-import { useQuery } from "@tanstack/react-query";
-import ProjectStart from "../../service/ApiProjectStart";
 import TransactionError from "../../pages/Error/TransactionError";
 
 const Applayoutbox = styled.div`

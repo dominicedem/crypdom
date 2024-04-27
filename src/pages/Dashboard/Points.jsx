@@ -35,18 +35,18 @@ const DashboardHead = styled.h1`
     gap: 1rem;
   }
 `;
-const User = styled.span`
-  font-size: 2rem;
-  line-height: 1.1;
-  background-clip: text;
-  background: -webkit-linear-gradient(#eeeeee, #b4b4b4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  @media (max-width: 575px) {
-    display: none;
-    font-size: 3.2rem;
-  }
-`;
+// const User = styled.span`
+//   font-size: 2rem;
+//   line-height: 1.1;
+//   background-clip: text;
+//   background: -webkit-linear-gradient(#eeeeee, #b4b4b4);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+//   @media (max-width: 575px) {
+//     display: none;
+//     font-size: 3.2rem;
+//   }
+// `;
 
 const DashboardText = styled.div`
   font-size: 1.5rem;

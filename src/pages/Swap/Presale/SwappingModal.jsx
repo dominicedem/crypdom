@@ -235,7 +235,7 @@ const Settings = styled.span`
 `;
 
 function SwappingModal() {
-  const [price, setPrice] = useState();
+  // const [price, setPrice] = useState();
   const [icon, setIcon] = useState(false);
   const [swapEntry, SetSwapEntry] = useState(false);
   const dispatch = useDispatch();
@@ -249,7 +249,7 @@ function SwappingModal() {
   // });
 
   function handleChange(e) {
-    setPrice(() => e.target.value);
+    // setPrice(() => e.target.value);
     dispatch(updateSolPrice(e.target.value));
   }
   function handleEnter() {
