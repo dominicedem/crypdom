@@ -26,7 +26,7 @@ import {
   setTwitter,
   setUsername,
 } from "../../feature/Slices/UserSlice";
-import confirmUserData from "../../service/ApiConfirmUser";
+import confirmUser from "../../service/ApiConfirmUser";
 import TransactionError from "../Error/TransactionError";
 import { MdCancel } from "react-icons/md";
 
@@ -268,9 +268,6 @@ function Dashboard() {
     (state) => state.transactionData
   );
 
-  const ref = localStorage.getItem("refData");
-  console.log("refdata", ref);
-
   const username = queryString.get("username");
   const token = queryString.get("token");
   const photo = queryString.get("photos");
@@ -280,8 +277,9 @@ function Dashboard() {
 
   const { data: confirmUserDatas, isFetched } = useQuery({
     queryKey: ["confirmData"],
-    queryFn: () => confirmUserData(token),
+    queryFn: () => confirmUser(token),
   });
+  console.log(confirmUserDatas, token);
   const loginSuccefully = useCallback(() => {
     dispatch(setTweet(true));
     dispatch(setRetweet(true));
