@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MdCancel } from "react-icons/md";
 import { AiFillInteraction } from "react-icons/ai";
-import { GrTwitter } from "react-icons/Gr";
+import { RiTwitterXLine } from "react-icons/ri";
 import { VscActivateBreakpoints } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -227,13 +227,13 @@ function TweetTasks({ username }) {
             <Connect>
               <Connect>follow</Connect>
             </Connect>
-            <GrTwitter style={twitterIconStyle} />
+            <RiTwitterXLine style={twitterIconStyle} />
           </ConnectTwitterButton>
           <ConnectTwitterButton onClick={() => verify("tweet")}>
             <Connect>
               <Connect>Tweet</Connect>
             </Connect>
-            <GrTwitter style={twitterIconStyle} />
+            <RiTwitterXLine style={twitterIconStyle} />
           </ConnectTwitterButton>
           <ConnectTwitterButton onClick={() => verify("retweet")}>
             <Connect>Retweet</Connect>
