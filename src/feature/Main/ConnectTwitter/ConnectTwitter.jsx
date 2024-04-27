@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { MdCancel } from "react-icons/md";
-import { GrTwitter } from "react-icons/Gr";
+import { RiTwitterXLine } from "react-icons/ri";
 import { openModalWindow } from "../../Slices/AuthSlice";
 import { setConnectTwitter } from "../../Slices/UserSlice";
 import styled from "styled-components";
@@ -115,7 +115,7 @@ function ConnectTwitter({ generallogin }) {
       </ConnectTwitterText>
       <ConnectTwitterButton onClick={() => handleconnectTwitter()}>
         <Connect>Connect</Connect>
-        <GrTwitter style={twitterIconStyle} />
+        <RiTwitterXLine style={twitterIconStyle} />
       </ConnectTwitterButton>
       <TermsCondition>
         By using CrypDom, you are consenting to abide by our{" "}

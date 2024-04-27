@@ -9,7 +9,7 @@ import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TweetTasks from "../../feature/Main/ConnectTwitter/TweetTasks";
 import ConnectTwitter from "../../feature/Main/ConnectTwitter/ConnectTwitter";
-import { GrTwitter } from "react-icons/Gr";
+import { RiTwitterXLine } from "react-icons/ri";
 
 import {
   setConnectTwitter,
@@ -410,7 +410,7 @@ function Dashboard() {
           </FollowTexts>
           <Follow onClick={() => handleFollow()}>
             <FollowCtas>Follow twitter</FollowCtas>
-            <GrTwitter style={twitterIconStyle} />
+            <RiTwitterXLine style={twitterIconStyle} />
           </Follow>
         </FollowBox>
       )}
