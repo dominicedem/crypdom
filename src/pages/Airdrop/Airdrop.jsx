@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { GrTwitter } from "react-icons/Gr";
 import { GrConnect } from "react-icons/Gr";
 import { AiFillInteraction } from "react-icons/ai";
 import { TiTicket } from "react-icons/ti";
 import { HiSpeakerphone } from "react-icons/hi";
 import { BiTransfer } from "react-icons/bi";
+import { RiTwitterXLine } from "react-icons/ri";
 
 const AirdropBox = styled.div`
   display: flex;
@@ -109,7 +109,7 @@ function Airdrop({ data }) {
           </Box>
           <StepText>Stay connected on Twitter</StepText>
           <Icon>
-            <GrTwitter style={iconStyle} />
+            <RiTwitterXLine style={iconStyle} />
           </Icon>
         </StepDetails>
         <StepDetails type="transform">

@@ -61,7 +61,7 @@ function Team({ data }) {
       <TeamBox>
         <TeamPhotoBox>
           <TeamPhoto></TeamPhoto>
-          <OverlayTeamPhoto src="teamPhoto.png" alt="OverlayTeamPhoto" />
+          <OverlayTeamPhoto src="logo.png" alt="OverlayTeamPhoto" />
         </TeamPhotoBox>
         <TeamDescription>
           <TeamName>{data.TeamName}</TeamName>

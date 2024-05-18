@@ -57,6 +57,7 @@ const List = styled.span`
   color: #d4d4d4c0;
   &:hover {
     color: #d3d3d39a;
+    text-decoration: underline;
   }
 `;
 
@@ -71,6 +72,7 @@ const Contacts = styled.a`
   color: #d4d4d4c0;
   &:hover {
     color: #d3d3d39a;
+    text-decoration: underline;
   }
 `;
 
