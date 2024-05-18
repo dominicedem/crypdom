@@ -17,7 +17,7 @@ import {
 } from "../../Slices/UserSlice";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import UserDashData from "../../../service/ApiGetUserData";
+// import UserDashData from "../../../service/ApiGetUserData";
 const ConnectTwitterBoxs = styled.div`
   max-width: 55rem;
   display: flex;
@@ -142,28 +142,28 @@ function TweetTasks({ username }) {
 
   const ref = localStorage.getItem("refData");
 
-  const { data, refetch, remove, isFetching } = useQuery({
-    queryKey: ["newUserData"],
-    queryFn: () =>
-      UserDashData(
-        usernames,
-        twitterId,
-        displayName,
-        interactionPoint,
-        photos,
-        ref
-      ),
-    enabled: false,
-  });
-  console.log(data);
+  // const { data, refetch, remove, isFetching } = useQuery({
+  //   queryKey: ["newUserData"],
+  //   queryFn: () =>
+  //     UserDashData(
+  //       usernames,
+  //       twitterId,
+  //       displayName,
+  //       interactionPoint,
+  //       photos,
+  //       ref
+  //     ),
+  //   enabled: false,
+  // });
+  // console.log(data);
 
-  data && logedIn && dispatch(setNewUsers(data.data));
+  // data && logedIn && dispatch(setNewUsers(data.data));
 
   function handleCancel(isFollowed) {
     isFollowed !== "notFollowed" && dispatch(setConnectTwitter(false));
     isFollowed !== "notFollowed" && navigate("/");
     isFollowed === "notFollowed" && dispatch(setFollowModal(true));
-    remove();
+    // remove();
   }
 
   function handleSuccessFullyConnect() {
@@ -181,16 +181,16 @@ function TweetTasks({ username }) {
         dispatch(setIsCompleteTask(false));
       }, 3000);
     } else if (tweet && retweet && followPage) {
-      refetch();
+      // refetch();
     }
   }
 
   function handleActivate() {
-    data.status === "fail"
-      ? handleCancel("notFollowed")
-      : handleSuccessFullyConnect();
+    // data.status === "fail"
+    //   ? handleCancel("notFollowed")
+    //   : handleSuccessFullyConnect();
   }
-  data && handleActivate();
+  // data && handleActivate();
 
   function handleVerifyTweet() {
     window.open(import.meta.env.VITE_Tweet, "_blank");
@@ -239,12 +239,12 @@ function TweetTasks({ username }) {
             <Connect>Retweet</Connect>
             <AiFillInteraction style={twitterIconStyle} />
           </ConnectTwitterButton>
-          <ActivateAccount onClick={() => handleClickActivate()}>
+          {/* <ActivateAccount onClick={() => handleClickActivate()}>
             {isFetching ? "checking..." : <Connect>Activate</Connect>}
             {isFetching ? null : (
               <VscActivateBreakpoints style={ActivateIconStyle} />
             )}
-          </ActivateAccount>
+          </ActivateAccount> */}
         </>
       }
     </ConnectTwitterBoxs>

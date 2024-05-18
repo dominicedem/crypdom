@@ -26,8 +26,8 @@ import {
   setTwitter,
   setUsername,
 } from "../../feature/Slices/UserSlice";
+// import confirmUser from "../../service/ApiConfirmUser";
 import TransactionError from "../Error/TransactionError";
-// import confirmUser from "../../service/ApiConfirmUser.js";
 import { MdCancel } from "react-icons/md";
 
 const DashboardBox = styled.div`
@@ -279,6 +279,7 @@ function Dashboard() {
   //   queryKey: ["confirmData"],
   //   queryFn: () => confirmUser(token),
   // });
+  // console.log(confirmUserDatas, token);
   const loginSuccefully = useCallback(() => {
     dispatch(setTweet(true));
     dispatch(setRetweet(true));
