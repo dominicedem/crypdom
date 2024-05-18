@@ -3,8 +3,6 @@ import Presale from "./Presale/Presale";
 import { useDispatch, useSelector } from "react-redux";
 import SettingsModal from "./SettingsModal";
 import { updateSettings } from "../../feature/Slices/TokenSlice";
-import Notify from "./Notify";
-// import { updateSettings } from "../../feature/Slices/TokenSlice";
 
 const SwapBox = styled.div`
   display: flex;
@@ -43,20 +41,8 @@ const OverlayBox = styled.div`
 `;
 const Box = styled.div``;
 
-const NofifyBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 20rem;
-  top: 12%;
-  right: 5%;
-  z-index: 10000;
-  transition: all 0.4s;
-`;
-
 function Swap() {
-  const { settings, notify } = useSelector((state) => state.tokenData);
+  const { settings } = useSelector((state) => state.tokenData);
   const dispatch = useDispatch();
   function handleOverlay(e) {
     if (e.target.className.split(" ").includes("overlay")) {
@@ -81,9 +67,6 @@ function Swap() {
           </Box>
         </OverlayBox>
       )}
-      <NofifyBox className={notify ? "visible" : "hide"}>
-        <Notify notify={notify} />
-      </NofifyBox>
     </SwapBox>
   );
 }

@@ -16,14 +16,13 @@ const NotifyStyle = styled.div`
   align-items: center;
   gap: 1rem;
   &::before {
-    position: absolute;
     content: "";
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #f0f0f1;
+    background: #f0f0f1;
     height: 3px;
-    transition: all 2s ease-in;
+    position: absolute;
   }
 `;
 const iconstyle = {
@@ -33,7 +32,7 @@ const iconstyle = {
 };
 export default function Notify({ notify }) {
   return (
-    <NotifyStyle className={notify && "roll"}>
+    <NotifyStyle className={notify && "notify"}>
       <FaRegCheckCircle style={iconstyle} />
       Settings saved
     </NotifyStyle>

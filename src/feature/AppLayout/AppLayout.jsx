@@ -16,6 +16,7 @@ import { activateBlur } from "../Slices/AppSlice";
 import TweetTasks from "../Main/ConnectTwitter/TweetTasks";
 import MenuBar from "../MenuBar/MenuBar";
 import TransactionError from "../../pages/Error/TransactionError";
+import Notify from "../../pages/Swap/Notify";
 
 const Applayoutbox = styled.div`
   display: grid;
@@ -118,6 +119,17 @@ const ErrorBox = styled.div`
     left: 50%;
   }
 `;
+const NofifyBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 20rem;
+  top: 12%;
+  right: 5%;
+  z-index: 10000;
+  transition: all 0.4s;
+`;
 const openMenuBar = {
   transform: "translateX(0)",
 };
@@ -133,6 +145,7 @@ const deactivateBlur = {
 
 function AppLayout() {
   const { menu } = useSelector((state) => state.mainData);
+  const { notify } = useSelector((state) => state.tokenData);
   const { isBlur } = useSelector((state) => state.applayout);
   const { twitterModal, tweetTask } = useSelector((state) => state.authData);
   const { transactionSuccess, transactionFail, connect, warning } = useSelector(
@@ -218,6 +231,9 @@ function AppLayout() {
           <TransactionError warning={warning} />
         </ErrorBox>
       )}
+      <NofifyBox className={notify ? "visible" : "hide"}>
+        <Notify notify={notify} />
+      </NofifyBox>
     </>
   );
 }

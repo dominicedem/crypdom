@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+
 const GlobalStyle = createGlobalStyle`
 :root {
   --nav_back_color: #A5ACB6;
@@ -11,7 +12,6 @@ const GlobalStyle = createGlobalStyle`
   --background_color: linear-gradient(135deg, #000 ,#111);
 }  
 
-
 html {
     font-size: 62.5%;
   }
@@ -20,6 +20,17 @@ body {
     font-family: 'Inter',sans-serif;
     box-sizing: border-box;
     line-height: 1.2;
+}
+
+.notify::before {
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background: #f0f0f1;
+  height: 3px;
+  position: absolute;
+  transition: all 2s linear;
 }
 
 ::-webkit-scrollbar {
@@ -83,16 +94,6 @@ body {
     left: 50%;
     transform: translate(-50%,-400%);
   }
-}
-
-.roll::before {
-  position: absolute;
-  content: "";
-  bottom: 0;
-  left: 0;
-  width: 0;
-  background-color: #f0f0f1;
-  height: 3px;
 }
 
 @media (max-width: 800px) {
