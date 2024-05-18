@@ -1,4 +1,4 @@
-import { GrTwitter } from "react-icons/Gr";
+import { RiTwitterXLine } from "react-icons/ri";
 import { FaMedium } from "react-icons/fa6";
 import styled from "styled-components";
 import Formdetail from "./Formdetail";
@@ -140,7 +140,7 @@ function Footer() {
                 window.open(import.meta.env.VITE_TwitterPage, "_blank")
               }
             >
-              <GrTwitter style={Iconstyle} /> <Span>Twitter</Span>
+              <RiTwitterXLine style={Iconstyle} /> <Span>Twitter</Span>
             </Contacts>
             <Contacts
               onClick={() =>
