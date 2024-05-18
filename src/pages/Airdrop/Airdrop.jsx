@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GrConnect } from "react-icons/Gr";
+// import { GrConnect } from "react-icons/Gr";
 import { AiFillInteraction } from "react-icons/ai";
 import { TiTicket } from "react-icons/ti";
 import { HiSpeakerphone } from "react-icons/hi";
@@ -113,9 +113,7 @@ function Airdrop({ data }) {
           </Icon>
         </StepDetails>
         <StepDetails type="transform">
-          <Icon>
-            <GrConnect style={iconStyle} />
-          </Icon>
+          <Icon>{/* <GrConnect style={iconStyle} /> */}</Icon>
           <StepText>Connect Twitter to earn a follow point</StepText>
           <Box>
             <Step>step</Step>
