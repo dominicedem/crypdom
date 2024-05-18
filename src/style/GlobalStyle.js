@@ -84,12 +84,13 @@ body {
     transform: translate(-50%,-400%);
   }
 }
+
 .roll::before {
   position: absolute;
   content: "";
   bottom: 0;
   left: 0;
-  width: 0%;
+  width: 0;
   background-color: #f0f0f1;
   height: 3px;
 }

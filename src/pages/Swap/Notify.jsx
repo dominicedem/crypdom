@@ -21,13 +21,10 @@ const NotifyStyle = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--primary_text_color);
+    background-color: #f0f0f1;
     height: 3px;
     transition: all 2s ease-in;
   }
-  /* @media (max-width: 425px) {
-    width: 90%;
-  } */
 `;
 const iconstyle = {
   fontSize: "2rem",

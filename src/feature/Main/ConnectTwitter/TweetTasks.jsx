@@ -2,22 +2,16 @@ import styled from "styled-components";
 import { MdCancel } from "react-icons/md";
 import { AiFillInteraction } from "react-icons/ai";
 import { RiTwitterXLine } from "react-icons/ri";
-// import { VscActivateBreakpoints } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setConnectTwitter,
   setFollowModal,
   setFollowPage,
-  // setIsCompleteTask,
-  // setLogedIn,
-  // setNewUsers,
   setRetweet,
-  // setSuccessfullyActivate,
   setTweet,
 } from "../../Slices/UserSlice";
 import { useNavigate } from "react-router-dom";
-// import { useQuery } from "@tanstack/react-query";
-// import UserDashData from "../../../service/ApiGetUserData";
+
 const ConnectTwitterBoxs = styled.div`
   max-width: 55rem;
   display: flex;
@@ -87,29 +81,6 @@ const ConnectTwitterButton = styled.span`
     padding: 0.8rem 1.5rem;
   }
 `;
-// const ActivateAccount = styled.span`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   gap: 0.5rem;
-//   cursor: pointer;
-//   width: 50%;
-//   box-shadow: 0 0.5rem 0.5rem 0 #000a;
-//   background-color: #121212e1;
-//   border-radius: 3rem;
-//   padding: 1rem 2rem;
-//   font-size: 1.8rem;
-//   color: #ccc;
-//   align-self: center;
-//   text-transform: uppercase;
-//   transition: all 0.2s;
-//   &:hover {
-//     background: linear-gradient(#141414e1, #141414e1);
-//   }
-//   @media (max-width: 600px) {
-//     padding: 0.8rem 1.5rem;
-//   }
-// `;
 
 const iconStyle = {
   fontSize: "2.5rem",
@@ -127,37 +98,7 @@ const twitterIconStyle = {
 function TweetTasks({ username }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const {
-  //   // tweet,
-  //   // retweet,
-  //   // followPage,
-  //   // logedIn,
-  //   // usernames,
-  //   // twitterId,
-  //   // displayName,
-  //   // interactionPoint,
-  //   // photos,
-  // } = useSelector((state) => state.userData);
   const { retweetLink } = useSelector((state) => state.applayout);
-
-  // const ref = localStorage.getItem("refData");
-
-  // const { data, refetch, remove, isFetching } = useQuery({
-  //   queryKey: ["newUserData"],
-  //   queryFn: () =>
-  //     UserDashData(
-  //       usernames,
-  //       twitterId,
-  //       displayName,
-  //       interactionPoint,
-  //       photos,
-  //       ref
-  //     ),
-  //   enabled: false,
-  // });
-  // console.log(data);
-
-  // data && logedIn && dispatch(setNewUsers(data.data));
 
   function handleCancel(isFollowed) {
     isFollowed !== "notFollowed" && dispatch(setConnectTwitter(false));
@@ -165,32 +106,6 @@ function TweetTasks({ username }) {
     isFollowed === "notFollowed" && dispatch(setFollowModal(true));
     // remove();
   }
-
-  // function handleSuccessFullyConnect() {
-  //   dispatch(setSuccessfullyActivate(true));
-  //   dispatch(setLogedIn(true));
-  //   setTimeout(() => {
-  //     dispatch(setSuccessfullyActivate(false));
-  //   }, 3000);
-  // }
-
-  // function handleClickActivate() {
-  //   if (!tweet || !retweet || !followPage) {
-  //     dispatch(setIsCompleteTask(true));
-  //     setTimeout(() => {
-  //       dispatch(setIsCompleteTask(false));
-  //     }, 3000);
-  //   } else if (tweet && retweet && followPage) {
-  //     // refetch();
-  //   }
-  // }
-
-  // function handleActivate() {
-  //   data.status === "fail"
-  //     ? handleCancel("notFollowed")
-  //     : handleSuccessFullyConnect();
-  // }
-  // data && handleActivate();
 
   function handleVerifyTweet() {
     window.open(import.meta.env.VITE_Tweet, "_blank");
@@ -239,12 +154,6 @@ function TweetTasks({ username }) {
             <Connect>Retweet</Connect>
             <AiFillInteraction style={twitterIconStyle} />
           </ConnectTwitterButton>
-          {/* <ActivateAccount onClick={() => handleClickActivate()}>
-            {isFetching ? "checking..." : <Connect>Activate</Connect>}
-            {isFetching ? null : (
-              <VscActivateBreakpoints style={ActivateIconStyle} />
-            )}
-          </ActivateAccount> */}
         </>
       }
     </ConnectTwitterBoxs>
