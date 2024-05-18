@@ -21,9 +21,9 @@ const Mainbox = styled.div`
 `;
 const SliderBox = styled.div`
   padding: 2rem 0 6rem 0;
-  display: ${(props) => (!props.desktop ? "none" : "block")};
+  display: ${(props) => (props.type === "mobile" ? "none" : "block")};
   @media (max-width: 700px) {
-    display: ${(props) => (props.desktop ? "none" : "block")};
+    display: ${(props) => (props.type === "desktop" ? "none" : "block")};
   }
 `;
 const SocialFi = styled.h1`
@@ -184,11 +184,11 @@ function Main() {
   });
   return (
     <Mainbox>
-      <SliderBox desktop={true}>
-        <Slider desktop={true} />
+      <SliderBox type="desktop">
+        <Slider desktop="true" />
       </SliderBox>
-      <SliderBox desktop={false}>
-        <Slider mobile={true} />
+      <SliderBox type="mobile">
+        <Slider mobile="true" />
       </SliderBox>
       <Maindesbox>
         <IntroSection>

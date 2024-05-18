@@ -279,7 +279,6 @@ function Dashboard() {
     queryKey: ["confirmData"],
     queryFn: () => confirmUser(token),
   });
-  console.log(confirmUserDatas, token);
   const loginSuccefully = useCallback(() => {
     dispatch(setTweet(true));
     dispatch(setRetweet(true));
@@ -325,6 +324,7 @@ function Dashboard() {
     twitterConnected,
     logedIn,
   ]);
+
   return (
     <>
       <DashboardBox

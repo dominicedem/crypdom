@@ -10,6 +10,8 @@ const initialState = {
   isPresaleModal: false,
   solPrice: "",
   settings: false,
+  route: false,
+  WBaseEth: false,
   notify: false,
 };
 
@@ -47,6 +49,16 @@ const TokenSlice = createSlice({
     updateNotify(state, action) {
       state.notify = action.payload;
     },
+    updateRoute(state) {
+      if (!state.route) {
+        state.route = true;
+      } else state.route = false;
+    },
+    updateWBaseEth(state) {
+      if (!state.WBaseEth) {
+        state.WBaseEth = true;
+      } else state.WBaseEth = false;
+    },
   },
 });
 
@@ -62,4 +74,6 @@ export const {
   updateSolPrice,
   updateSettings,
   updateNotify,
+  updateRoute,
+  updateWBaseEth,
 } = TokenSlice.actions;

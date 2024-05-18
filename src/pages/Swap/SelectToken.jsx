@@ -36,7 +36,7 @@ const HeadTexts = styled.div`
   &:hover {
     border: 1px solid #121212;
     background-color: ${(prop) =>
-      prop.first === "true" ? "none" : "#87878712"};
+      prop.type === "true" ? "none" : "#87878712"};
   }
   @media (max-width: 500px) {
     font-size: 1.8rem;
@@ -251,7 +251,7 @@ function SelectToken() {
           />
           <IoSearch style={iconStyle} />
         </Searchs>
-        <HeadTexts first="true">
+        <HeadTexts type="true">
           <Logos src="/base.png" alt="Baselogo" />
           <MdKeyboardArrowDown style={iconStyle} />
         </HeadTexts>
@@ -259,28 +259,28 @@ function SelectToken() {
       <Tokens>
         <HeadTexts
           onClick={() => handleChoseToken("CRD", "/logo.png")}
-          colors="true"
+          type="color"
         >
           <Logos src="/logo.png" alt="logo" />
           CRD
         </HeadTexts>
         <HeadTexts
           onClick={() => handleChoseToken("ETH", "/ethereum].png")}
-          colors="true"
+          type="true"
         >
           <Logos src="/ethereum].png" alt="logo" />
           ETH
         </HeadTexts>
         <HeadTexts
           onClick={() => handleChoseToken("WETH", "/eth.jpg")}
-          colors="true"
+          type="true"
         >
           <Logos src="/eth.jpg" alt="logo" />
           WETH
         </HeadTexts>
         <HeadTexts
           onClick={() => handleChoseToken("UNI", "/uniswap.png")}
-          colors="true"
+          type="true"
         >
           <Logos src="/uniswap.png" alt="logo" />
           UNI

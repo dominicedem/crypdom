@@ -8,7 +8,6 @@ const CopyBtn = styled.span`
   font-size: 1.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  /* box-shadow: 0 0.5rem 0.5rem 0 #3335; */
   cursor: pointer;
 `;
 const IconStyle = {

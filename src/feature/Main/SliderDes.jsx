@@ -49,7 +49,7 @@ const Imagebox = styled.div`
   }
 `;
 const OverlayBackground = styled.div`
-  background: #000000aa;
+  background: #00000055;
   position: absolute;
   top: 0;
   left: 0;
@@ -115,9 +115,9 @@ const SliderSubHeader = styled.h1`
 function SliderDes({ data, desktop, mobile }) {
   return (
     <>
-      {desktop && (data.id + 1) % 2 === 0 && (
+      {desktop==="true" && (data.id + 1) % 2 === 0 && (
         <SliderDesbox>
-          <SliderSubHeaderBox width={true}>
+          <SliderSubHeaderBox>
             <SliderSubHeader>{data.sub}</SliderSubHeader>
             <SliderDesText>{data.description}</SliderDesText>
           </SliderSubHeaderBox>
@@ -126,7 +126,7 @@ function SliderDes({ data, desktop, mobile }) {
           </Imagebox>
         </SliderDesbox>
       )}
-      {desktop && (data.id + 1) % 2 !== 0 && (
+      {desktop==="true" && (data.id + 1) % 2 !== 0 && (
         <SliderDesbox style={rightstyle}>
           <Imagebox>
             <SliderDesImg alt="logo" src={data.image_url} />
@@ -137,7 +137,7 @@ function SliderDes({ data, desktop, mobile }) {
           </SliderSubHeaderBox>
         </SliderDesbox>
       )}
-      {mobile && (
+      {mobile==="true" && (
         <Imagebox>
           <SliderDesImg alt="logo" src={data.image_url} />
           <OverlayBackground>

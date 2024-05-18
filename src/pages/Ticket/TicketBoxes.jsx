@@ -55,10 +55,10 @@ const TicketTypeBox = styled.div`
 //   }
 // `;
 const Buy = styled.p`
-  background: ${(props) => (props.gold === "true" ? "#E19118" : "")};
-  background: ${(props) => (props.silver === "true" ? "#d7d7d7" : "")};
-  background: ${(props) => (props.bronze === "true" ? "#CD6a32" : "")};
-  background: ${(props) => (props.regular === "true" ? "#a09e9ece" : "")};
+  background: ${(props) => (props.type === "gold" ? "#E19118" : "")};
+  background: ${(props) => (props.type === "silver" ? "#d7d7d7" : "")};
+  background: ${(props) => (props.type === "bronze" ? "#CD6a32" : "")};
+  background: ${(props) => (props.type === "regular" ? "#a09e9ece" : "")};
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.2rem 0.5rem;
@@ -70,10 +70,10 @@ const AmountBox = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: ${(props) => (props.gold === "true" ? "#E19118" : "")};
-  color: ${(props) => (props.silver === "true" ? "#d7d7d7" : "")};
-  color: ${(props) => (props.bronze === "true" ? "#CD7F32" : "")};
-  color: ${(props) => (props.regular === "true" ? "#a09e9ece" : "")};
+  color: ${(props) => (props.type === "gold" ? "#E19118" : "")};
+  color: ${(props) => (props.type === "silver" ? "#d7d7d7" : "")};
+  color: ${(props) => (props.type === "bronze" ? "#CD7F32" : "")};
+  color: ${(props) => (props.type === "regular" ? "#a09e9ece" : "")};
 `;
 const TicketType = styled.div`
   background-position: 50% 65%;
@@ -81,10 +81,10 @@ const TicketType = styled.div`
   height: 15rem;
   border-radius: 1.5rem;
   padding: 1.5rem;
-  border: ${(props) => (props.gold === "true" ? "1px solid #E19118" : "")};
-  border: ${(props) => (props.silver === "true" ? "1px solid #d7d7d7" : "")};
-  border: ${(props) => (props.bronze === "true" ? "1px solid #CD7F32" : "")};
-  border: ${(props) => (props.regular === "true" ? "1px solid #a09e9ece" : "")};
+  border: ${(props) => (props.type === "gold" ? "1px solid #E19118" : "")};
+  border: ${(props) => (props.type === "silver" ? "1px solid #d7d7d7" : "")};
+  border: ${(props) => (props.type === "bronze" ? "1px solid #CD7F32" : "")};
+  border: ${(props) => (props.type === "regular" ? "1px solid #a09e9ece" : "")};
   backdrop-filter: grayscale(95%);
   background: linear-gradient(#050505, #111);
   display: flex;
@@ -200,7 +200,7 @@ function TicketBoxes() {
   }, [ENDPOINT, newTicketRemaining]);
   return (
     <TicketTypeBox>
-      <TicketType regular="true">
+      <TicketType type="regular">
         <TicketBalanceBox>
           <BalanceText>
             Regular:{" "}
@@ -212,26 +212,26 @@ function TicketBoxes() {
               ? UserDatas.user.tickets.regularTickets
               : 0}
           </BalanceText>
-          <AmountBox regular="true">0.2SOL</AmountBox>
+          <AmountBox type="regular">0.2SOL</AmountBox>
         </TicketBalanceBox>
         <RiVerifiedBadgeFill style={regulariconStyle} />
-        <TicketTypeText regular="true">
+        <TicketTypeText type="regular">
           <Buy
-            regular="true"
+            type="regular"
             onClick={() => openRouletteModal("regularTickets")}
           >
             Spin
           </Buy>
           {regularBalance && regularBalance > 0 ? (
-            <Buy onClick={() => handleBuyTickets("regular")} regular="true">
+            <Buy onClick={() => handleBuyTickets("regular")} type="regular">
               BUY
             </Buy>
           ) : (
-            <Buy regular="true">Sold out</Buy>
+            <Buy type="regular">Sold out</Buy>
           )}
         </TicketTypeText>
       </TicketType>
-      <TicketType bronze="true">
+      <TicketType type="bronze">
         <TicketBalanceBox>
           <BalanceText>
             Bronze:{" "}
@@ -243,23 +243,23 @@ function TicketBoxes() {
               ? UserDatas.user.tickets.bronzeTickets
               : 0}
           </BalanceText>
-          <AmountBox bronze="true">0.3SOL</AmountBox>
+          <AmountBox type="bronze">0.3SOL</AmountBox>
         </TicketBalanceBox>
         <RiVerifiedBadgeFill style={bronzeiconStyle} />
-        <TicketTypeText bronze="true">
-          <Buy bronze="true" onClick={() => openRouletteModal("bronzeTickets")}>
+        <TicketTypeText type="bronze">
+          <Buy type="bronze" onClick={() => openRouletteModal("bronzeTickets")}>
             Spin
           </Buy>
           {bronzeBalance && bronzeBalance > 0 ? (
-            <Buy onClick={() => handleBuyTickets("bronze")} bronze="true">
+            <Buy onClick={() => handleBuyTickets("bronze")} type="bronze">
               BUY
             </Buy>
           ) : (
-            <Buy bronze="true">Sold out</Buy>
+            <Buy type="bronze">Sold out</Buy>
           )}
         </TicketTypeText>
       </TicketType>
-      <TicketType silver="true">
+      <TicketType type="silver">
         <TicketBalanceBox>
           <BalanceText>
             Silver:{" "}
@@ -271,23 +271,23 @@ function TicketBoxes() {
               ? UserDatas.user.tickets.silverTickets
               : 0}
           </BalanceText>
-          <AmountBox silver="true">0.4SOL</AmountBox>
+          <AmountBox type="silver">0.4SOL</AmountBox>
         </TicketBalanceBox>
         <RiVerifiedBadgeFill style={silvericonStyle} />
-        <TicketTypeText silver="true">
-          <Buy silver="true" onClick={() => openRouletteModal("silverTickets")}>
+        <TicketTypeText type="silver">
+          <Buy type="silver" onClick={() => openRouletteModal("silverTickets")}>
             Spin
           </Buy>
           {silverBalance && silverBalance > 0 ? (
-            <Buy onClick={() => handleBuyTickets("silver")} silver="true">
+            <Buy onClick={() => handleBuyTickets("silver")} type="silver">
               Buy
             </Buy>
           ) : (
-            <Buy silver="true">Sold out</Buy>
+            <Buy type="silver">Sold out</Buy>
           )}
         </TicketTypeText>
       </TicketType>
-      <TicketType gold="true">
+      <TicketType type="gold">
         <TicketBalanceBox>
           <BalanceText>
             Gold:{" "}
@@ -299,19 +299,19 @@ function TicketBoxes() {
               ? UserDatas.user.tickets.goldTickets
               : 0}
           </BalanceText>
-          <AmountBox gold="true">0.5SOL</AmountBox>
+          <AmountBox type="gold">0.5SOL</AmountBox>
         </TicketBalanceBox>
         <RiVerifiedBadgeFill style={goldiconStyle} />
-        <TicketTypeText gold="true">
-          <Buy gold="true" onClick={() => openRouletteModal("goldTickets")}>
+        <TicketTypeText type="gold">
+          <Buy type="gold" onClick={() => openRouletteModal("goldTickets")}>
             Spin
           </Buy>
           {goldBalance && goldBalance > 0 ? (
-            <Buy onClick={() => handleBuyTickets("gold")} gold="true">
+            <Buy onClick={() => handleBuyTickets("gold")} type="gold">
               BUY
             </Buy>
           ) : (
-            <Buy gold="true">Sold out</Buy>
+            <Buy type="gold">Sold out</Buy>
           )}
         </TicketTypeText>
       </TicketType>

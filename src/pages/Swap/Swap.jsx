@@ -3,14 +3,14 @@ import Presale from "./Presale/Presale";
 import { useDispatch, useSelector } from "react-redux";
 import SettingsModal from "./SettingsModal";
 import { updateSettings } from "../../feature/Slices/TokenSlice";
-import { useEffect } from "react";
 import Notify from "./Notify";
 // import { updateSettings } from "../../feature/Slices/TokenSlice";
 
-const ClaimBox = styled.div`
+const SwapBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: relative;
 `;
 const Video = styled.video`
@@ -44,40 +44,38 @@ const OverlayBox = styled.div`
 const Box = styled.div``;
 
 const NofifyBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
+  width: 20rem;
   top: 12%;
   right: 5%;
   z-index: 10000;
   transition: all 0.4s;
-  @media (max-width: 500px) {
-    left: 50%;
-    transform: translateX(-50%);
-  }
 `;
 
 function Swap() {
   const { settings, notify } = useSelector((state) => state.tokenData);
   const dispatch = useDispatch();
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      if (e.target.className.split(" ").includes("overlay")) {
-        dispatch(updateSettings(false));
-      }
-    });
-  }, [dispatch]);
+  function handleOverlay(e) {
+    if (e.target.className.split(" ").includes("overlay")) {
+      dispatch(updateSettings(false));
+    }
+  }
   return (
-    <ClaimBox>
+    <SwapBox>
       <Video
         src="https://media.istockphoto.com/id/693311426/video/3d-spinning-coins.mp4?s=mp4-640x640-is&k=20&c=apF65v5MgnlvVFsgKWEhFOtYd8GDflSa684sZ5xQ78E="
         playsInline
         type="video/mp4"
-        autoplay="true"
+        autoPlay
         loop
         muted
       />
       <Presale />
       {settings && (
-        <OverlayBox className="overlay">
+        <OverlayBox onClick={(e) => handleOverlay(e)} className="overlay">
           <Box>
             <SettingsModal />
           </Box>
@@ -86,7 +84,7 @@ function Swap() {
       <NofifyBox className={notify ? "visible" : "hide"}>
         <Notify notify={notify} />
       </NofifyBox>
-    </ClaimBox>
+    </SwapBox>
   );
 }
 export default Swap;

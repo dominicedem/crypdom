@@ -45,15 +45,6 @@ const Balance = styled.div`
   font-size: 1.7rem;
   box-shadow: inset 0 0.5rem 0.6rem 0 #222;
 `;
-// const TicketSlot = styled.div`
-//   align-self: end;
-//   color: #eee;
-//   background: linear-gradient(#050505, #111);
-//   border-radius: 0.7rem;
-//   padding: 1rem 1.5rem;
-//   font-size: 1.7rem;
-//   box-shadow: inset 0 0.5rem 0.6rem 0 #222;
-// `;
 
 const OverlayBoxs = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FaRegCheckCircle } from "react-icons/fa";
 
-const Tests = styled.div`
+const NotifyStyle = styled.div`
   font-size: 1.8rem;
   color: var(--primary_text_color);
   position: relative;
@@ -9,7 +9,7 @@ const Tests = styled.div`
   background: linear-gradient(60deg, #444d, #3337);
   cursor: pointer;
   z-index: 10000;
-  width: fit-content;
+  width: 100%;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   display: flex;
@@ -25,9 +25,9 @@ const Tests = styled.div`
     height: 3px;
     transition: all 2s ease-in;
   }
-  @media (max-width: 425px) {
+  /* @media (max-width: 425px) {
     width: 90%;
-  }
+  } */
 `;
 const iconstyle = {
   fontSize: "2rem",
@@ -36,9 +36,9 @@ const iconstyle = {
 };
 export default function Notify({ notify }) {
   return (
-    <Tests className={notify && "roll"}>
+    <NotifyStyle className={notify && "roll"}>
       <FaRegCheckCircle style={iconstyle} />
       Settings saved
-    </Tests>
+    </NotifyStyle>
   );
 }

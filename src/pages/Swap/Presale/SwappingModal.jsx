@@ -73,13 +73,13 @@ const SwapHolderBox = styled.div`
   border-radius: 1rem;
   width: 90%;
   background: ${(props) =>
-    props.back === "true"
+    props.type === "true"
       ? "linear-gradient(#bbb,#929292)"
       : "linear-gradient(#b2b2b28d,#7f7f7f96)"};
   &:hover,
   &:focus {
     box-shadow: ${(props) =>
-      props.back === "true" ? "0 0 1rem 0.01rem #cccccc68" : "none"};
+      props.type === "true" ? "0 0 1rem 0.01rem #cccccc68" : "none"};
   }
   @media (max-width: 900px) {
     padding: 1.6rem;
@@ -101,7 +101,7 @@ const SwapTokenBox = styled.div`
   &:hover {
     /* background: linear-gradient(60deg, #444d, #3337); */
     background: ${(props) =>
-      props.back === "true"
+      props.type === "true"
         ? "linear-gradient(60deg, #444d, #3337)"
         : "linear-gradient(60deg, #3337,#444d)"};
   }
@@ -259,7 +259,7 @@ function SwappingModal() {
     setIcon(false);
   }
   function handleChanges(pick) {
-    dispatch(updateOpenNetwork((el) => !el));
+    dispatch(updateOpenNetwork(true));
     pick === "true" && dispatch(updateChoose(true));
     pick === "false" && dispatch(updateChoose(false));
   }
@@ -278,7 +278,7 @@ function SwappingModal() {
           <SwapTextDescription>You're paying</SwapTextDescription>
           {!swapEntry ? (
             <>
-              <SwapHolderBox back="true">
+              <SwapHolderBox type="true">
                 <SwapTokenBox onClick={() => handleChanges("true")}>
                   <Img alt="Partner's logo" src={currentToken1.logo} />
                   <TokenName>{currentToken1.symbol}</TokenName>
@@ -296,7 +296,7 @@ function SwappingModal() {
             </>
           ) : (
             <>
-              <SwapHolderBox back="true">
+              <SwapHolderBox type="true">
                 <SwapTokenBox onClick={() => handleChanges("false")}>
                   <Img src={currentToken2.logo} alt="logo" />
                   <TokenName>{currentToken2.symbol}</TokenName>
@@ -328,9 +328,9 @@ function SwappingModal() {
           <SwapTextDescription>To recieve</SwapTextDescription>
           {!swapEntry ? (
             <>
-              <SwapHolderBox back="false">
+              <SwapHolderBox type="false">
                 <SwapTokenBox
-                  back="true"
+                  type="true"
                   onClick={() => handleChanges("false")}
                 >
                   <Img src={currentToken2.logo} alt="logo" />
@@ -342,8 +342,8 @@ function SwappingModal() {
             </>
           ) : (
             <>
-              <SwapHolderBox back="false">
-                <SwapTokenBox back="true" onClick={() => handleChanges("true")}>
+              <SwapHolderBox type="false">
+                <SwapTokenBox type="true" onClick={() => handleChanges("true")}>
                   <Img alt="Partner's logo" src={currentToken1.logo} />
                   <TokenName>{currentToken1.symbol}</TokenName>
                   <IoIosArrowDown style={iconStyle} />

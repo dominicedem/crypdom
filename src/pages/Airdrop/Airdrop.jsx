@@ -26,9 +26,11 @@ const AirdropRules = styled.div`
 const StepDetails = styled.div`
   width: 100%;
   transform: ${(props) =>
-    props.transform ? "translateX(45%)" : "translate(0)"};
+    props.type === "transform" ? "translateX(45%)" : "translate(0)"};
   padding: ${(props) =>
-    props.transform ? "1rem 2.3rem 1rem 1rem" : "1rem 1rem 1rem 2.3rem"};
+    props.type === "transform"
+      ? "1rem 2.3rem 1rem 1rem"
+      : "1rem 1rem 1rem 2.3rem"};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,11 +96,6 @@ const iconStyle = {
   background: "-webkit-linear-gradient(#aaaaaaef, #707070f0)",
   borderRadius: "50%",
   padding: "1.5rem 1.6rem",
-  "@media (max-width: 550px)": {
-    fontSize: "1rem",
-    padding: "1rem 1rem",
-    background: "#f00",
-  },
 };
 function Airdrop({ data }) {
   return (
@@ -115,7 +112,7 @@ function Airdrop({ data }) {
             <GrTwitter style={iconStyle} />
           </Icon>
         </StepDetails>
-        <StepDetails transform={true}>
+        <StepDetails type="transform">
           <Icon>
             <GrConnect style={iconStyle} />
           </Icon>
@@ -137,7 +134,7 @@ function Airdrop({ data }) {
             <AiFillInteraction style={iconStyle} />
           </Icon>
         </StepDetails>
-        <StepDetails transform={true}>
+        <StepDetails type="transform">
           <Icon>
             <TiTicket style={iconStyle} />
           </Icon>
@@ -157,7 +154,7 @@ function Airdrop({ data }) {
             <HiSpeakerphone style={iconStyle} />
           </Icon>
         </StepDetails>
-        <StepDetails transform={true}>
+        <StepDetails type="transform">
           <Icon>
             <BiTransfer style={iconStyle} />
           </Icon>

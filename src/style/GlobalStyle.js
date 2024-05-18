@@ -72,14 +72,16 @@ body {
 
 .visible {
   transform: translateX(0);
-  @media (max-width:500px) {
-  transform: translateY(0);
+  @media (max-width:600px) {
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }
 .hide {
   transform: translateX(200%);
-  @media (max-width:500px) {
-  transform: translateY(-400%);
+  @media (max-width:600px) {
+    left: 50%;
+    transform: translate(-50%,-400%);
   }
 }
 .roll::before {
@@ -87,8 +89,8 @@ body {
   content: "";
   bottom: 0;
   left: 0;
-  width: 0;
-  background-color: var(--primary_text_color);
+  width: 0%;
+  background-color: #f0f0f1;
   height: 3px;
 }
 

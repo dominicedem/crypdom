@@ -63,7 +63,7 @@ const iconStyle = {
   borderRadius: "0.5rem",
   padding: "0.2rem 0.2rem",
 };
-const Ref = styled.p`
+const Ref = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;

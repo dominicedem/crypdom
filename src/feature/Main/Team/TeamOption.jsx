@@ -41,7 +41,6 @@ function TeamOption() {
   const { leaders, developement, marketing, creative } = useSelector(
     (state) => state.mainData
   );
-  console.log(leaders, developement, creative, marketing);
   return (
     <TeamOptionBox>
       <TeamOptionButton

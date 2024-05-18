@@ -23,7 +23,9 @@ const PresaleBox = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: center;
   gap: 1.9rem;
+  height: 100%;
 `;
 
 const Box = styled.div`

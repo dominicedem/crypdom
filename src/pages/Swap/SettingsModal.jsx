@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import { RxCross2 } from "react-icons/rx";
-import { useDispatch } from "react-redux";
-import { updateNotify, updateSettings } from "../../feature/Slices/TokenSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  updateNotify,
+  updateRoute,
+  updateSettings,
+  updateWBaseEth,
+} from "../../feature/Slices/TokenSlice";
 import { BsExclamation } from "react-icons/bs";
+// import { useState } from "react";
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -41,7 +47,7 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  margin-bottom: ${(props) => (props.header ? "2rem" : "0")};
+  margin-bottom: ${(props) => (props.type === "true" ? "2rem" : "0")};
 `;
 const ExclaimBox = styled.div`
   display: flex;
@@ -71,7 +77,7 @@ const iconStyles = {
   cursor: "pointer",
 };
 
-const Text = styled.p`
+const Text = styled.div`
   font-size: 1.4rem;
   color: #c9c9c9f4;
   display: flex;
@@ -105,6 +111,7 @@ const Save = styled.span`
 
 function SettingsModal() {
   const dispatch = useDispatch();
+  const { route, WBaseEth } = useSelector((state) => state.tokenData);
 
   function openNotify() {
     dispatch(updateNotify(true));
@@ -113,7 +120,7 @@ function SettingsModal() {
   }
   return (
     <ModalWrapper>
-      <Header header={true}>
+      <Header type="true">
         <Head>General settings</Head>
         <RxCross2
           style={iconStyle}
@@ -127,7 +134,11 @@ function SettingsModal() {
             <BsExclamation style={iconStyles} />
           </ExclaimBox>
         </Text>
-        <Input type="checkbox" />
+        <Input
+          type="checkbox"
+          onChange={(e) => dispatch(updateRoute())}
+          checked={route}
+        />
       </Header>
       <Header>
         <Text>
@@ -136,7 +147,11 @@ function SettingsModal() {
             <BsExclamation style={iconStyles} />
           </ExclaimBox>
         </Text>
-        <Input type="checkbox" />
+        <Input
+          type="checkbox"
+          onChange={() => dispatch(updateWBaseEth())}
+          checked={WBaseEth}
+        />
       </Header>
       <Header>
         <Text>
@@ -145,7 +160,7 @@ function SettingsModal() {
             <BsExclamation style={iconStyles} />
           </ExclaimBox>
         </Text>
-        <Input type="checkbox" checked />
+        <Input type="checkbox" checked readOnly />
       </Header>
       <Save onClick={() => openNotify()}>Save Settings</Save>
     </ModalWrapper>

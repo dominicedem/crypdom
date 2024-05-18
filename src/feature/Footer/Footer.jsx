@@ -94,7 +94,7 @@ function Footer() {
     <>
       <Footerbox>
         <Footers>
-          <Headbox mobile={true}>
+          <Headbox>
             <Head>Platform</Head>
             <Link style={linkStyle} to="/">
               <List>Home</List>
