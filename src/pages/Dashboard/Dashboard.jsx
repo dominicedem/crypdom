@@ -26,8 +26,8 @@ import {
   setTwitter,
   setUsername,
 } from "../../feature/Slices/UserSlice";
-import confirmUser from "../../service/ApiConfirmUser";
 import TransactionError from "../Error/TransactionError";
+import ConfirmUser from "../../service/ApiConfirmUser";
 import { MdCancel } from "react-icons/md";
 
 const DashboardBox = styled.div`
@@ -277,7 +277,7 @@ function Dashboard() {
 
   const { data: confirmUserDatas, isFetched } = useQuery({
     queryKey: ["confirmData"],
-    queryFn: () => confirmUser(token),
+    queryFn: () => ConfirmUser(token),
   });
   const loginSuccefully = useCallback(() => {
     dispatch(setTweet(true));
