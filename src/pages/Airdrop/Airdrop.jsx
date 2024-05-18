@@ -113,7 +113,9 @@ function Airdrop({ data }) {
           </Icon>
         </StepDetails>
         <StepDetails type="transform">
-          <Icon>{/* <GrConnect style={iconStyle} /> */}</Icon>
+          <Icon>
+            <RiTwitterXLine style={iconStyle} />
+          </Icon>
           <StepText>Connect Twitter to earn a follow point</StepText>
           <Box>
             <Step>step</Step>

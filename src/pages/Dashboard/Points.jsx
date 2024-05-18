@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { AiFillInteraction } from "react-icons/ai";
 import { TiTicket } from "react-icons/ti";
-import { GrTwitter } from "react-icons/Gr";
+import { RiTwitterXLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import {
   updataClaimFunction,
@@ -199,7 +199,7 @@ function Points({ userData }) {
         <PointType>
           <PointName>
             {!isClaim ? <Text>Social Point</Text> : <Text>Total point</Text>}
-            {!isClaim && <GrTwitter style={iconStyle} />}
+            {!isClaim && <RiTwitterXLine style={iconStyle} />}
           </PointName>
           {!isClaim ? (
             <PointValue>
