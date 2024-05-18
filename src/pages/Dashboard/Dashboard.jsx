@@ -4,10 +4,10 @@ import GeneralStat from "./GeneralStat";
 import Topuser from "./Topuser";
 import Points from "./Points";
 import { useSearchParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TweetTasks from "../../feature/Main/ConnectTwitter/TweetTasks";
+// import TweetTasks from "../../feature/Main/ConnectTwitter/TweetTasks";
 import ConnectTwitter from "../../feature/Main/ConnectTwitter/ConnectTwitter";
 import { RiTwitterXLine } from "react-icons/ri";
 
@@ -258,7 +258,7 @@ function Dashboard() {
     logedIn,
     twitterConnected,
     activate,
-    followPage,
+    // followPage,
     follow,
     UserDatas,
     connectTwitter,
@@ -275,10 +275,10 @@ function Dashboard() {
   const displayName = queryString.get("displayName");
   const interactionPoint = queryString.get("interactionPoint");
 
-  const { data: confirmUserDatas, isFetched } = useQuery({
-    queryKey: ["confirmData"],
-    queryFn: () => confirmUser(token),
-  });
+  // const { data: confirmUserDatas, isFetched } = useQuery({
+  //   queryKey: ["confirmData"],
+  //   queryFn: () => confirmUser(token),
+  // });
   const loginSuccefully = useCallback(() => {
     dispatch(setTweet(true));
     dispatch(setRetweet(true));
@@ -306,10 +306,10 @@ function Dashboard() {
     dispatch(setInteraction(interactionPoint));
     dispatch(setPhoto(photo));
     handleSets();
-    twitterConnected && confirmUserDatas?.user.username && loginSuccefully();
-    confirmUserDatas &&
-      twitterConnected &&
-      dispatch(setNewUsers(confirmUserDatas));
+    // twitterConnected && confirmUserDatas?.user.username && loginSuccefully();
+    // confirmUserDatas &&
+    //   twitterConnected &&
+    //   dispatch(setNewUsers(confirmUserDatas));
   }, [
     dispatch,
     username,
@@ -320,7 +320,7 @@ function Dashboard() {
     token,
     handleSets,
     loginSuccefully,
-    confirmUserDatas,
+    // confirmUserDatas,
     twitterConnected,
     logedIn,
   ]);
@@ -361,13 +361,13 @@ function Dashboard() {
           <ConnectTwitter />
         </OverlayBoxs>
       )}
-      {!confirmUserDatas && twitterConnected && isFetched ? (
+      {/* {!confirmUserDatas && twitterConnected && isFetched ? (
         tweet && retweet && followPage && logedIn ? null : (
           <OverlayBoxs className="">
             <TweetTasks username={username} />
           </OverlayBoxs>
         )
-      ) : null}{" "}
+      ) : null}{" "} */}
       {activate && (
         <ErrorBox>
           <TransactionError activate={true} />
