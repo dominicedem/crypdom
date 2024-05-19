@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import SwappingModal from "./SwappingModal";
-import { useEffect, useState } from "react";
-import Network from "../Network";
+import { useEffect } from "react";
 import {
   updateOpenNetwork,
   updateTyped,
@@ -24,22 +23,13 @@ const PresaleBox = styled.div`
   flex-direction: column;
   position: relative;
   justify-content: center;
-  margin-top: -2.5rem;
   gap: 1.9rem;
   height: 100%;
+  @media (max-width: 400px) {
+    margin-top: -4rem;
+  }
 `;
 
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  background: #e8e8e8d9;
-  border: 1px solid #425988;
-  top: 11%;
-  left: 82%;
-  padding: 0.5rem 0;
-  border-radius: 1rem;
-`;
 const Overlay = styled.div`
   width: 100%;
   height: 100%;
@@ -72,15 +62,19 @@ const Boxs = styled.div`
   }
   @media (max-width: 600px) {
     width: 60vw;
+    top: 45%;
   }
   @media (max-width: 550px) {
     width: 80vw;
+    top: 45%;
   }
   @media (max-width: 480px) {
     width: 95vw;
+    top: 45%;
   }
   @media (max-width: 400px) {
     width: 95vw;
+    top: 45%;
   }
 `;
 const Header = styled.p`
@@ -105,14 +99,10 @@ const Header = styled.p`
 `;
 
 function Presale() {
-  const [openNetwork, setOpenNetwork] = useState(false);
   const dispatch = useDispatch();
   const { openNetworks } = useSelector((state) => state.transactionData);
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      if (e.target.className.split(" ").includes("overlay")) {
-        setOpenNetwork(false);
-      }
       if (e.target.className.split(" ").includes("overlays")) {
         dispatch(updateOpenNetwork(false));
         dispatch(updateTyped(false));
@@ -125,13 +115,6 @@ function Presale() {
         <Header>Swap to $CrypDom anytime</Header>
         <SwappingModal isOpen={true} />
       </PresaleBox>
-      {openNetwork && (
-        <Overlay className="overlay">
-          <Box>
-            <Network />
-          </Box>
-        </Overlay>
-      )}
       {openNetworks && (
         <Overlay className="overlays">
           <Boxs>
