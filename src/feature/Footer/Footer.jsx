@@ -18,6 +18,9 @@ const Footerbox = styled.div`
     display: flex;
     flex-direction: column;
   }
+  @media (max-width: 400px) {
+    padding: 5rem 0.5rem;
+  }
 `;
 
 const Footers = styled.div`
@@ -30,9 +33,6 @@ const Footers = styled.div`
     width: 80vw;
     margin-top: 5rem;
     order: 1;
-  }
-  @media (max-width: 460px) {
-    padding-left: 2.5rem;
   }
   @media (max-width: 390px) {
     padding-left: 1rem;

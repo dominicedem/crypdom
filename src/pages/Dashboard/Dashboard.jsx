@@ -143,7 +143,6 @@ const FollowBox = styled.div`
   align-items: center;
   gap: 1rem;
   background-color: #666;
-  /* background-color: #141414; */
   box-shadow: 0 1rem 1rem 0 #000a;
   border-radius: 1rem;
   padding: 2.5rem 4rem 4rem 4rem;
@@ -188,21 +187,6 @@ const TopUserBox = styled.div`
     width: 98%;
   }
 `;
-// const MobileUser = styled.span`
-//   display: none;
-//   @media (max-width: 575px) {
-//     display: inline-block;
-//     color: #ccc;
-//     font-size: 2.2rem;
-//   }
-// `;
-// const MobilePoint = styled.div`
-//   display: none;
-//   @media (max-width: 575px) {
-//     display: inline-block;
-//     margin: 3rem 0;
-//   }
-// `;
 const CancelBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -253,8 +237,8 @@ function Dashboard() {
   const [queryString] = useSearchParams();
   const dispatch = useDispatch();
   const {
-    tweet,
-    retweet,
+    // tweet,
+    // retweet,
     logedIn,
     twitterConnected,
     activate,
@@ -325,15 +309,11 @@ function Dashboard() {
     twitterConnected,
     logedIn,
   ]);
-
+  // !tweet || !retweet ||
   return (
     <>
       <DashboardBox
-        style={
-          !tweet || !retweet || !logedIn || !twitterConnected
-            ? activateBlurs
-            : deactivateBlur
-        }
+        style={!logedIn || !twitterConnected ? activateBlurs : deactivateBlur}
       >
         <Analysis>
           <DashboardSubBox>

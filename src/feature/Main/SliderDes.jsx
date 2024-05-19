@@ -29,9 +29,6 @@ const SliderDesImg = styled.img`
     transform: scale(1.1);
   }
   filter: grayscale(100%);
-  @media (max-width: 700px) {
-    filter: grayscale(70%);
-  }
 `;
 const Imagebox = styled.div`
   overflow: hidden;
@@ -47,6 +44,12 @@ const Imagebox = styled.div`
     height: 60vh;
     position: relative;
   }
+  @media (max-width: 400px) {
+    box-shadow: 0 0.5rem 1rem 1rem #000a;
+    width: 100%;
+    height: 55vh;
+    position: relative;
+  }
 `;
 const OverlayBackground = styled.div`
   background: #00000055;
@@ -59,6 +62,9 @@ const OverlayBackground = styled.div`
   align-items: flex-end;
   justify-content: flex-start;
   padding: 0 0 0 2rem;
+  @media (max-width: 400px) {
+    padding: 0 0 0 1rem;
+  }
 `;
 const Textbox = styled.div`
   display: flex;
@@ -81,6 +87,10 @@ const Head = styled.h2`
     font-size: 3.3rem;
     width: 90%;
   }
+  @media (max-width: 400px) {
+    font-size: 3.3rem;
+    width: 95%;
+  }
 `;
 const Subhead = styled.h2`
   color: var(--secondary_text_color);
@@ -89,6 +99,10 @@ const Subhead = styled.h2`
   font-size: 2rem;
   @media (max-width: 530px) {
     font-size: 1.9rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.9rem;
+    width: 95%;
   }
 `;
 const SliderSubHeaderBox = styled.div`
@@ -115,7 +129,7 @@ const SliderSubHeader = styled.h1`
 function SliderDes({ data, desktop, mobile }) {
   return (
     <>
-      {desktop==="true" && (data.id + 1) % 2 === 0 && (
+      {desktop === "true" && (data.id + 1) % 2 === 0 && (
         <SliderDesbox>
           <SliderSubHeaderBox>
             <SliderSubHeader>{data.sub}</SliderSubHeader>
@@ -126,7 +140,7 @@ function SliderDes({ data, desktop, mobile }) {
           </Imagebox>
         </SliderDesbox>
       )}
-      {desktop==="true" && (data.id + 1) % 2 !== 0 && (
+      {desktop === "true" && (data.id + 1) % 2 !== 0 && (
         <SliderDesbox style={rightstyle}>
           <Imagebox>
             <SliderDesImg alt="logo" src={data.image_url} />
@@ -137,7 +151,7 @@ function SliderDes({ data, desktop, mobile }) {
           </SliderSubHeaderBox>
         </SliderDesbox>
       )}
-      {mobile==="true" && (
+      {mobile === "true" && (
         <Imagebox>
           <SliderDesImg alt="logo" src={data.image_url} />
           <OverlayBackground>

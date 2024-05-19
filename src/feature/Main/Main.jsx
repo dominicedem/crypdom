@@ -105,7 +105,7 @@ const IntroSection = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20rem;
+  margin-bottom: 13rem;
 `;
 const ErrorBox = styled.div`
   position: absolute;

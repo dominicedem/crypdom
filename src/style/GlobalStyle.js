@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   --tertiary_color: #eeef;
   --activeTab_color: #b1a176;
   --background_color: linear-gradient(135deg, #000 ,#111);
+  --logedinTxtColor: #151515aa;
 }  
 
 html {

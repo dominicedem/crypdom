@@ -21,7 +21,7 @@ const datas = [
       "Experience blockchain-powered innovation with CrypDom on the solana blockchain, bringing you the future of social finance.",
   },
   {
-    image_url: `image-9.jpg`,
+    image_url: `rev.jpeg`,
     id: 3,
     sub: "Revolutionizing Social Media",
     description:

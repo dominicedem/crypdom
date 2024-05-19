@@ -12,9 +12,11 @@ const Formdetails = styled.div`
   flex-direction: column;
   gap: 1rem;
   color: #e6e6e6ec;
-  /* padding: 5rem 2rem; */
   @media (max-width: 459px) {
-    padding: 2rem 2rem;
+    order: -1;
+  }
+  @media (max-width: 400px) {
+    padding: 2rem 0.5rem;
     order: -1;
   }
 `;
