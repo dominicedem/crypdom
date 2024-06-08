@@ -40,7 +40,7 @@ const TeamOptionBox = styled.div`
 const data = [
   {
     TeamPhoto: `/teamBackPhoto.png`,
-    TeamName: "Dominic E.E",
+    TeamName: "Stein martins",
     TeamRole: "ceo/founder",
   },
   {
