@@ -89,6 +89,9 @@ body {
     transform: translate(-50%, 0);
   }
 }
+.mySwiper {
+  width: 100% !important;
+}
 .hide {
   transform: translateX(200%);
   @media (max-width:600px) {

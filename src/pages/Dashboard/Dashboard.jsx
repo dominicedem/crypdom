@@ -237,12 +237,9 @@ function Dashboard() {
   const [queryString] = useSearchParams();
   const dispatch = useDispatch();
   const {
-    // tweet,
-    // retweet,
     logedIn,
     twitterConnected,
     activate,
-    // followPage,
     follow,
     UserDatas,
     connectTwitter,
@@ -259,11 +256,6 @@ function Dashboard() {
   const displayName = queryString.get("displayName");
   const interactionPoint = queryString.get("interactionPoint");
 
-  // const { data: confirmUserDatas, isFetched } = useQuery({
-  //   queryKey: ["confirmData"],
-  //   queryFn: () => confirmUser(token),
-  // });
-  // console.log(confirmUserDatas, token);
   const loginSuccefully = useCallback(() => {
     dispatch(setTweet(true));
     dispatch(setRetweet(true));
@@ -291,10 +283,6 @@ function Dashboard() {
     dispatch(setInteraction(interactionPoint));
     dispatch(setPhoto(photo));
     handleSets();
-    // twitterConnected && confirmUserDatas?.user.username && loginSuccefully();
-    // confirmUserDatas &&
-    //   twitterConnected &&
-    //   dispatch(setNewUsers(confirmUserDatas));
   }, [
     dispatch,
     username,
@@ -305,15 +293,13 @@ function Dashboard() {
     token,
     handleSets,
     loginSuccefully,
-    // confirmUserDatas,
     twitterConnected,
     logedIn,
   ]);
-  // !tweet || !retweet ||
   return (
     <>
       <DashboardBox
-        style={!logedIn || !twitterConnected ? activateBlurs : deactivateBlur}
+        style={logedIn || twitterConnected ? activateBlurs : deactivateBlur}
       >
         <Analysis>
           <DashboardSubBox>
@@ -337,18 +323,11 @@ function Dashboard() {
         </Analysis>
         <GeneralStat />
       </DashboardBox>
-      {twitterConnected ? null : (
+      {!twitterConnected ? null : (
         <OverlayBoxs className="">
           <ConnectTwitter />
         </OverlayBoxs>
       )}
-      {/* {!confirmUserDatas && twitterConnected && isFetched ? (
-        tweet && retweet && followPage && logedIn ? null : (
-          <OverlayBoxs className="">
-            <TweetTasks username={username} />
-          </OverlayBoxs>
-        )
-      ) : null}{" "} */}
       {activate && (
         <ErrorBox>
           <TransactionError activate={true} />

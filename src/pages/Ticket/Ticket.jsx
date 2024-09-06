@@ -120,7 +120,7 @@ function Ticket() {
   return (
     <>
       <TicketBox
-        style={!twitterConnected || roulette ? activateBlurs : deactivateBlur}
+        style={twitterConnected || roulette ? activateBlurs : deactivateBlur}
       >
         <TicketHead>
           <Balance>
@@ -143,7 +143,7 @@ function Ticket() {
         </TagBox>
         <TicketBoxes />
       </TicketBox>
-      {twitterConnected ? null : (
+      {!twitterConnected ? null : (
         <OverlayBoxs className="">
           <ConnectTwitter />
         </OverlayBoxs>
